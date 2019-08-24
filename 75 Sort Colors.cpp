@@ -35,6 +35,7 @@ public:
 		//三路快排
 		//zeroEnd是放0那部分的尾部索引，twoBegin是放2那部分的首部索引
 		//碰到0放到zeroEnd+1处，碰到2放到twoEnd-1处，碰到1指针后移
+		//https://www.cnblogs.com/higerzhang/p/4100200.html
 		int start = 0, end = nums.size() - 1;
 		int i = 0;
 		while (i <= end){
