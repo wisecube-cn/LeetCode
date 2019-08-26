@@ -55,20 +55,41 @@ public:
 		//} else {
 		//	return false;
 		//}
-		int m = matrix.size();
-		if (m == 0) return false;
-		int n = matrix[0].size();
 
-		// 二分查找
-		int left = 0, right = m * n - 1;
-		int pivotIdx, pivotElement;
-		while (left <= right) {
-			pivotIdx = (left + right) / 2;
-			pivotElement = matrix[pivotIdx / n][pivotIdx % n];
-			if (target == pivotElement) return true;
-			else {
-				if (target < pivotElement) right = pivotIdx - 1;
-				else left = pivotIdx + 1;
+		//int m = matrix.size();
+		//if (m == 0) return false;
+		//int n = matrix[0].size();
+
+		//// 二分查找
+		//int left = 0, right = m * n - 1;
+		//int pivotIdx, pivotElement;
+		//while (left <= right) {
+		//	pivotIdx = (left + right) / 2;
+		//	pivotElement = matrix[pivotIdx / n][pivotIdx % n];
+		//	if (target == pivotElement) return true;
+		//	else {
+		//		if (target < pivotElement) right = pivotIdx - 1;
+		//		else left = pivotIdx + 1;
+		//	}
+		//}
+		//return false;
+
+		int m = matrix.size();
+		if (m == 0){
+			return false;
+		}
+        int n = matrix[0].size();
+		int left = 0;
+		int right = m*n - 1;
+		while (left <= right){
+			int mid = (left + right) / 2;
+			int element = matrix[mid / n][mid%n];
+			if (target == element){
+				return true;
+			} else if (target < element){
+				right = mid - 1;
+			} else {
+				left = mid + 1;
 			}
 		}
 		return false;
